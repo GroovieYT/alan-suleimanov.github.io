@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alan Suleimanov — Portfolio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <style>
       body {
         background: linear-gradient(-45deg, #0e0e10, #1a1b29, #111827, #0f172a);
@@ -16,27 +13,15 @@
         color: white;
         font-family: "Poppins", sans-serif;
         min-height: 100vh;
-        overflow-x: hidden;
       }
       @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
-      .glow {
-        text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
-      }
-      .social-icon:hover {
-        filter: drop-shadow(0 0 8px #00f5ff);
-        transform: translateY(-2px);
-        transition: 0.3s;
-      }
+      .glow { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
+      .nav-link { margin: 0 1rem; color: #ccc; transition: 0.3s; }
+      .nav-link:hover { color: #00f5ff; text-shadow: 0 0 8px #00f5ff; }
       .card {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -53,39 +38,32 @@
     </style>
   </head>
 
-  <body class="flex flex-col justify-center items-center px-6 py-12">
+  <body class="flex flex-col items-center px-6 py-8">
+    <!-- NAVBAR -->
+    <nav class="w-full max-w-5xl flex justify-center mb-10 text-lg">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
     <main class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <!-- Left Column: Hero + About -->
       <div>
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 glow">
-          Alan Suleimanov
-        </h1>
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 glow">Alan Suleimanov</h1>
         <p class="text-lg md:text-xl text-gray-300 mb-6">
           CS @ Western University • Quantitative Analyst Intern • Software Engineer
         </p>
-
         <p class="text-gray-400 leading-relaxed mb-8">
-          I’m an Honours Computer Science student at Western University (Canada, GPA 3.9/4.0),
+          I’m an Honours Computer Science student at Western University (GPA 3.9/4.0),
           passionate about data-driven engineering and quantitative finance.
-          My experience spans building large-scale data systems at <b>SAP</b> and <b>PwC</b>,
-          and developing quantitative tools for the <b>Clearstream team at Deutsche Börse</b>.
-          I love combining mathematics, software design, and markets to create practical, high-impact solutions.
+          Experienced in building scalable systems at <b>SAP</b> and <b>PwC</b>,
+          and developing tools for the <b>Clearstream</b> team at <b>Deutsche Börse</b>.
         </p>
-
-        <div class="flex space-x-6">
-          <a href="https://github.com/GroovieYT" target="_blank" class="social-icon">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" width="28" />
-          </a>
-          <a href="https://linkedin.com/in/alan-suleimanov" target="_blank" class="social-icon">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" width="28" />
-          </a>
-          <a href="mailto:alan.a.suleimanov@gmail.com" class="social-icon">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" width="28" />
-          </a>
-        </div>
       </div>
 
-      <!-- Right Column: Stock Portfolio Card -->
+      <!-- Portfolio Card -->
       <div class="card text-gray-200">
         <h2 class="text-2xl font-semibold mb-4 glow">Live Portfolio Snapshot</h2>
         <ul id="portfolio" class="space-y-2 text-gray-300">
@@ -95,9 +73,7 @@
           <li>AAPL — +0.35%</li>
           <li>GOOG — +1.04%</li>
         </ul>
-        <p class="mt-6 text-sm text-gray-400">
-          *Data updates daily (prototype). API integration coming soon.
-        </p>
+        <p class="mt-6 text-sm text-gray-400">*Data updates daily (prototype).</p>
       </div>
     </main>
 
