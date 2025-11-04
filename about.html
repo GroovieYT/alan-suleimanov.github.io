@@ -4,118 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Alan Suleimanov</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <style>
       body {
-        background: linear-gradient(-45deg, #0e0e10, #1a1b29, #111827, #0f172a);
-        background-size: 400% 400%;
-        animation: gradient 12s ease infinite;
-        color: white;
-        font-family: "Poppins", sans-serif;
-        min-height: 100vh;
+        background-color: #0d0d0f;
+        color: #dcdcdc;
+        font-family: 'JetBrains Mono', monospace;
+        padding: 3rem 1.5rem;
+        line-height: 1.8;
       }
-      @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      .glow { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
-      .nav-link { margin: 0 1rem; color: #ccc; transition: 0.3s; }
-      .nav-link:hover { color: #00f5ff; text-shadow: 0 0 8px #00f5ff; }
-      .card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        padding: 2rem;
-        transition: 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-3px);
-        border-color: #00f5ff;
-        box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
-      }
+      a { color: #00f5ff; transition: 0.2s; }
+      a:hover { color: #b3ffff; }
+      .title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 1rem; }
+      .nav { margin-bottom: 3rem; color: #777; }
+      .nav a { margin: 0 0.6rem; color: #999; }
+      .nav a:hover { color: #00f5ff; }
+      .divider { border-top: 1px solid #1a1a1d; margin: 2rem 0; }
+      footer { margin-top: 3rem; font-size: 0.9rem; color: #555; }
     </style>
   </head>
 
-  <body class="flex flex-col items-center px-6 py-10">
-    <!-- NAVBAR -->
-    <nav class="w-full max-w-5xl flex justify-center mb-12 text-lg">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="about.html" class="nav-link text-white font-semibold">About</a>
-      <a href="photography.html" class="nav-link">Photography</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
+  <body class="max-w-2xl mx-auto">
+    <div class="title">◆ Alan Suleimanov</div>
 
-    <!-- ABOUT CONTENT -->
-    <main class="max-w-4xl mx-auto space-y-10 text-gray-300 leading-relaxed">
-      <section>
-        <h1 class="text-5xl font-bold mb-4 glow">About Me</h1>
-        <p class="text-lg mb-6">
-          I’m <b>Alan Suleimanov</b> — a Computer Science student at <b>Western University</b>
-          with a deep passion for <b>data, finance, and intelligent systems</b>. My academic and
-          professional journey is focused on bridging computational problem solving with financial
-          modeling and software scalability.
-        </p>
-      </section>
+    <div class="nav">
+      <a href="index.html">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html" class="text-white">About</a> |
+      <a href="photography.html">Photography</a> |
+      <a href="contact.html">Contact</a>
+    </div>
 
-      <section class="card">
-        <h2 class="text-2xl font-semibold mb-3 glow">🎓 Education</h2>
-        <p>
-          <b>Western University</b> — Honours Computer Science<br />
-          <span class="text-gray-400 text-sm">GPA: 3.9/4.0</span><br /><br />
-          My coursework spans algorithms, machine learning, and systems design. I enjoy exploring
-          the intersection between software architecture and applied mathematics, with a strong
-          interest in quantitative modeling and data-driven automation.
-        </p>
-      </section>
+    <p>↳ Based in <b>Ontario</b>, Canada.</p>
+    <p>↳ Studying <b>Computer Science</b> and <b>Finance</b>.</p>
+    <p>↳ Passionate about <b>data-driven strategy</b>, <b>AI systems</b>, and <b>markets</b>.</p>
+    <p>↳ Founder of multiple analytical projects focused on automation and intelligent decision support.</p>
+    <p>↳ Experienced in consulting, software development, and quantitative research.</p>
+    <p>↳ Interested in bridging technology and finance — from algorithmic systems to real-world investment impact.</p>
+    <p>↳ My favorite creative outlet is <b>photography</b>.</p>
+    <p>↳ Favorite sport: <b>kickboxing</b> and <b>boxing</b>.</p>
 
-      <section class="card">
-        <h2 class="text-2xl font-semibold mb-3 glow">💼 Professional Experience</h2>
-        <ul class="list-disc ml-5 space-y-2">
-          <li>
-            <b>Deutsche Börse Group (Clearstream)</b> — Quantitative Analyst Intern<br />
-            Developed automated portfolio and liquidity analytics tools to support trading operations.
-          </li>
-          <li>
-            <b>PWC</b> — Technology Consulting Intern<br />
-            Contributed to process automation and analytics dashboards for enterprise clients.
-          </li>
-          <li>
-            <b>SAP</b> — Software Developer Intern<br />
-            Built data pipeline components and UI prototypes for ERP integration solutions.
-          </li>
-        </ul>
-      </section>
+    <div class="divider"></div>
 
-      <section class="card">
-        <h2 class="text-2xl font-semibold mb-3 glow">📈 Interests</h2>
-        <p>
-          I’m fascinated by how technology transforms finance — from quantitative trading and data
-          infrastructure to emerging areas like digital asset modeling. Beyond code, I also enjoy
-          photography, long-distance running, and exploring new financial markets.
-        </p>
-      </section>
+    <p>◆ Contact:</p>
+    <p>
+      <a href="mailto:alan.a.suleimanov@gmail.com">Email</a> |
+      <a href="https://github.com/GroovieYT" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/alan-suleimanov" target="_blank">LinkedIn</a> |
+      <a href="https://x.com" target="_blank">X</a>
+    </p>
 
-      <section>
-        <a
-          href="index.html"
-          class="text-blue-400 hover:text-blue-300 transition"
-          >← Back to Home</a
-        >
-      </section>
-    </main>
-
-    <footer class="mt-16 py-6 text-gray-500 text-sm text-center">
-      © <span id="year"></span> Alan Suleimanov. All rights reserved.
-    </footer>
+    <footer>© <span id="year"></span> Alan Suleimanov</footer>
 
     <script>
-      document.getElementById("year").innerText = new Date().getFullYear();
+      document.getElementById('year').innerText = new Date().getFullYear();
     </script>
   </body>
 </html>
