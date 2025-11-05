@@ -6,143 +6,153 @@
   <title>Alan Suleimanov</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
+    :root { --link-light:#6b7280; --link-light-hover:#111; --link-dark:#9ca3af; --link-dark-hover:#e5e7eb; }
     body {
       font-family: 'JetBrains Mono', monospace;
-      transition: background 0.4s ease, color 0.4s ease;
+      transition: background .4s ease, color .4s ease;
       line-height: 1.8;
       padding: 3rem 1.5rem;
       overflow-x: hidden;
       cursor: none;
     }
-    body.light { background: #fff; color: #111; }
-    body.dark { background: #0f0f0f; color: #e2e2e2; }
-    a { color: #007acc; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #5cd3ff; }
-    .title { font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; }
-    .divider { border-top: 1px solid #ddd; margin: 2rem 0; }
-    body.dark .divider { border-top: 1px solid #1c1c1d; }
+    body.light { background:#fff; color:#111; }
+    body.dark { background: radial-gradient(1200px 600px at 10% -10%, rgba(255,120,90,.12), transparent 40%), linear-gradient(#0a0a0a,#171717); color:#e2e2e2; }
+
+    .title { font-size:1.6rem; font-weight:600; margin-bottom:1rem; }
+    .divider { border-top:1px solid #ddd; margin:2rem 0; }
+    body.dark .divider { border-top:1px solid #222; }
+
+    a.link { text-decoration:none; transition:color .2s ease; }
+    body.light a.link { color:var(--link-light); }
+    body.light a.link:hover { color:var(--link-light-hover); }
+    body.dark a.link { color:var(--link-dark); }
+    body.dark a.link:hover { color:var(--link-dark-hover); }
+
+    .nav a { transition: transform .15s ease, color .2s ease; }
+    .nav a:hover { transform: translateY(-2px); }
+
     .toggle-btn {
-      border: 1px solid #aaa;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
+      border:1px solid #aaa; padding:.4rem .8rem; border-radius:8px;
+      background:transparent; font-size:.9rem; transition:background .2s;
       cursor: pointer;
-      background-color: transparent;
-      font-size: 0.9rem;
-      transition: background 0.2s;
     }
-    .toggle-btn:hover { background-color: #f2f2f2; }
-    body.dark .toggle-btn:hover { background-color: #222; }
+    .toggle-btn:hover { background:#f2f2f2; }
+    body.dark .toggle-btn:hover { background:#222; }
+
     .cursor-dot {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
+      position: fixed; top:0; left:0; width:16px; height:16px; border-radius:50%;
+      pointer-events:none; transform:translate(-50%,-50%); z-index:50;
+      transition: width .15s, height .15s, opacity .2s;
       mix-blend-mode: difference;
-      transition: width 0.2s, height 0.2s, background 0.3s, opacity 0.3s;
     }
-    body.light .cursor-dot { background: #000; }
-    body.dark .cursor-dot { background: #fff; }
-    .cursor-hover {
-      width: 30px !important;
-      height: 30px !important;
-      opacity: 0.5 !important;
-    }
-    .logo-link img {
-      height: 22px;
-      vertical-align: middle;
-      margin-right: 6px;
-      opacity: 0.9;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .logo-link:hover img { opacity: 1; transform: scale(1.05); }
+    body.light .cursor-dot { background:#000; }
+    body.dark .cursor-dot { background:#fff; }
+    .cursor-hover { width:28px !important; height:28px !important; opacity:.6; }
+
+    #fx { position:fixed; inset:0; z-index:0; pointer-events:none; }
+    .wrap { position:relative; z-index:10; max-width:42rem; margin:0 auto; }
   </style>
 </head>
 
-<body class="light max-w-2xl mx-auto">
+<body class="light">
+  <canvas id="fx"></canvas>
   <div class="cursor-dot" id="cursor"></div>
 
-  <div class="flex justify-between items-center mb-6 relative z-20">
-    <div class="title">◆ Alan Suleimanov</div>
-    <button class="toggle-btn" id="themeToggle">Dark mode</button>
+  <div class="wrap">
+    <div class="flex justify-between items-center mb-6">
+      <div class="title">◆ Alan Suleimanov</div>
+      <button class="toggle-btn" id="themeToggle">Dark mode</button>
+    </div>
+
+    <nav class="nav mb-6">
+      <div class="flex flex-wrap gap-3">
+        <a href="index.html" class="link font-semibold">Home</a>
+        <a href="projects.html" class="link">Projects</a>
+        <a href="about.html" class="link">About</a>
+        <a href="portfolio.html" class="link">Portfolio</a>
+      </div>
+    </nav>
+
+    <p>↳ Honours Computer Science at
+      <a href="https://www.uwo.ca/" target="_blank" class="link logo-link">
+        <img src="https://logo.clearbit.com/uwo.ca" alt="Western University" style="height:22px;vertical-align:middle;margin-right:6px;opacity:.95">Western University
+      </a>.
+    </p>
+
+    <p>↳ Quantitative Analyst at
+      <a href="https://deutsche-boerse.com" target="_blank" class="link logo-link">
+        <img src="https://logo.clearbit.com/deutsche-boerse.com" alt="Deutsche Börse Group" style="height:22px;vertical-align:middle;margin-right:6px;opacity:.95">Deutsche Börse Group
+      </a>.
+    </p>
+
+    <p>↳ Former Software Engineer Intern at
+      <a href="https://www.sap.com" target="_blank" class="link logo-link">
+        <img src="https://logo.clearbit.com/sap.com" alt="SAP" style="height:22px;vertical-align:middle;margin-right:6px;opacity:.95">SAP Labs Bucharest
+      </a> and Data Analyst at
+      <a href="https://www.pwc.com" target="_blank" class="link logo-link">
+        <img src="https://logo.clearbit.com/pwc.com" alt="PwC" style="height:22px;vertical-align:middle;margin-right:6px;opacity:.95">PwC
+      </a>.
+    </p>
+
+    <p>↳ Focused on AI systems, data infrastructure, and quantitative finance.</p>
+
+    <div class="divider"></div>
+
+    <footer class="text-sm opacity-80">
+      © <span id="year"></span> Alan Suleimanov —
+      <a href="mailto:alan.a.suleimanov@gmail.com" class="link">Email</a> ·
+      <a href="https://github.com/GroovieYT" class="link">GitHub</a> ·
+      <a href="https://linkedin.com/in/alan-suleimanov" class="link">LinkedIn</a> ·
+      <a href="https://x.com" class="link">X</a>
+    </footer>
   </div>
 
-  <nav class="mb-6">
-    <div class="flex flex-wrap gap-3 text-gray-600 dark:text-gray-400">
-      <a href="index.html" class="font-semibold">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-    </div>
-  </nav>
-
-  <p>↳ Honours Computer Science at 
-    <a href="https://www.uwo.ca/" target="_blank" class="logo-link">
-      <img src="https://logo.clearbit.com/uwo.ca" alt="Western University logo">Western University
-    </a>.
-  </p>
-
-  <p>↳ Quantitative Analyst at 
-    <a href="https://deutsche-boerse.com" target="_blank" class="logo-link">
-      <img src="https://logo.clearbit.com/deutsche-boerse.com" alt="Deutsche Börse logo">Deutsche Börse Group
-    </a>.
-  </p>
-
-  <p>↳ Former Software Engineer Intern at 
-    <a href="https://www.sap.com" target="_blank" class="logo-link">
-      <img src="https://logo.clearbit.com/sap.com" alt="SAP logo">SAP Labs Bucharest
-    </a> and Data Analyst at 
-    <a href="https://www.pwc.com" target="_blank" class="logo-link">
-      <img src="https://logo.clearbit.com/pwc.com" alt="PwC logo">PwC
-    </a>.
-  </p>
-
-  <p>↳ Focused on AI systems, data infrastructure, and quantitative finance.</p>
-
-  <div class="divider"></div>
-
-  <footer class="text-sm text-gray-500 relative z-20">
-    <p>© <span id="year"></span> Alan Suleimanov — 
-      <a href="mailto:alan.a.suleimanov@gmail.com">Email</a> ·
-      <a href="https://github.com/GroovieYT">GitHub</a> ·
-      <a href="https://linkedin.com/in/alan-suleimanov">LinkedIn</a> ·
-      <a href="https://x.com">X</a>
-    </p>
-  </footer>
-
   <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
+
     const toggleBtn = document.getElementById("themeToggle");
     const body = document.body;
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.replace("light", "dark");
-      toggleBtn.textContent = "Light mode";
-    }
+    if (localStorage.getItem("theme") === "dark") { body.classList.replace("light","dark"); toggleBtn.textContent="Light mode"; }
     toggleBtn.addEventListener("click", () => {
-      if (body.classList.contains("light")) {
-        body.classList.replace("light", "dark");
-        toggleBtn.textContent = "Light mode";
-        localStorage.setItem("theme", "dark");
-      } else {
-        body.classList.replace("dark", "light");
-        toggleBtn.textContent = "Dark mode";
-        localStorage.setItem("theme", "light");
-      }
+      if (body.classList.contains("light")) { body.classList.replace("light","dark"); toggleBtn.textContent="Light mode"; localStorage.setItem("theme","dark"); }
+      else { body.classList.replace("dark","light"); toggleBtn.textContent="Dark mode"; localStorage.setItem("theme","light"); }
     });
+
     const cursor = document.getElementById("cursor");
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.top = `${e.clientY}px`;
-      cursor.style.left = `${e.clientX}px`;
-    });
+    let cx = window.innerWidth/2, cy = window.innerHeight/2, tx = cx, ty = cy;
+    document.addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; });
+    function animateCursor(){
+      cx += (tx - cx)*0.2; cy += (ty - cy)*0.2;
+      cursor.style.transform = `translate(${cx}px,${cy}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
     const links = document.querySelectorAll("a, button");
-    links.forEach((el) => {
+    links.forEach(el => {
       el.addEventListener("mouseenter", () => cursor.classList.add("cursor-hover"));
       el.addEventListener("mouseleave", () => cursor.classList.remove("cursor-hover"));
     });
+
+    const canvas = document.getElementById("fx");
+    const ctx = canvas.getContext("2d");
+    function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize(); window.addEventListener("resize", resize);
+    let px = tx, py = ty;
+    function loop(){
+      ctx.fillStyle = body.classList.contains("dark") ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      const grad = ctx.createRadialGradient(px,py,0,px,py,70);
+      if (body.classList.contains("dark")) { grad.addColorStop(0,"rgba(255,255,255,0.22)"); grad.addColorStop(1,"rgba(255,255,255,0)"); }
+      else { grad.addColorStop(0,"rgba(0,0,0,0.22)"); grad.addColorStop(1,"rgba(0,0,0,0)"); }
+      ctx.globalCompositeOperation = "lighter";
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.arc(px,py,70,0,Math.PI*2); ctx.fill();
+      ctx.globalCompositeOperation = "source-over";
+      px += (tx - px)*0.25; py += (ty - py)*0.25;
+      requestAnimationFrame(loop);
+    }
+    loop();
   </script>
 </body>
 </html>
