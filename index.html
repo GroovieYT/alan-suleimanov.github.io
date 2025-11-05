@@ -12,12 +12,12 @@
       line-height: 1.8;
       padding: 3rem 1.5rem;
       overflow-x: hidden;
-      position: relative;
+      cursor: none; /* Hide default pointer */
     }
-    body.light { background: #ffffff; color: #111; }
+    body.light { background: #fff; color: #111; }
     body.dark { background: #0f0f0f; color: #e2e2e2; }
 
-    a { color: #007acc; text-decoration: none; }
+    a { color: #007acc; text-decoration: none; transition: color 0.2s; }
     a:hover { color: #5cd3ff; }
 
     .title { font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; }
@@ -36,41 +36,42 @@
     .toggle-btn:hover { background-color: #f2f2f2; }
     body.dark .toggle-btn:hover { background-color: #222; }
 
-    /* ✨ Mouse parallax light */
-    .light-cursor {
+    /* Custom cursor */
+    .cursor-dot {
       position: fixed;
       top: 0;
       left: 0;
-      width: 250px;
-      height: 250px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       pointer-events: none;
-      background: radial-gradient(circle, rgba(0,122,204,0.2) 0%, transparent 70%);
       transform: translate(-50%, -50%);
-      mix-blend-mode: multiply;
-      z-index: 10;
-      transition: opacity 0.3s;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: width 0.2s, height 0.2s, background 0.3s, opacity 0.3s;
     }
+    body.light .cursor-dot { background: #000; }
+    body.dark .cursor-dot { background: #fff; }
 
-    body.dark .light-cursor {
-      background: radial-gradient(circle, rgba(92,211,255,0.15) 0%, transparent 70%);
-      mix-blend-mode: lighten;
+    .cursor-hover {
+      width: 30px !important;
+      height: 30px !important;
+      opacity: 0.5 !important;
     }
 
     .logo-link img {
-      height: 20px;
+      height: 22px;
       vertical-align: middle;
       margin-right: 6px;
-      opacity: 0.85;
-      transition: 0.2s;
+      opacity: 0.9;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .logo-link:hover img { opacity: 1; transform: scale(1.05); }
   </style>
 </head>
 
 <body class="light max-w-2xl mx-auto">
-  <!-- Interactive glow -->
-  <div class="light-cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor"></div>
 
   <div class="flex justify-between items-center mb-6 relative z-20">
     <div class="title">◆ Alan Suleimanov</div>
@@ -88,29 +89,23 @@
 
   <p>↳ Honours Computer Science at 
     <a href="https://www.uwo.ca/" target="_blank" class="logo-link">
-      <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/University_of_Western_Ontario_coat_of_arms.svg" alt="Western University logo">Western University
+      <img src="https://logo.clearbit.com/uwo.ca" alt="Western University logo">Western University
     </a>.
   </p>
 
   <p>↳ Quantitative Analyst at 
-    <a href="https://www.deutsche-boerse.com/dbg-en/" target="_blank" class="logo-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Deutsche_B%C3%B6rse_logo.svg" alt="Deutsche Börse logo">Deutsche Börse Group
+    <a href="https://deutsche-boerse.com" target="_blank" class="logo-link">
+      <img src="https://logo.clearbit.com/deutsche-boerse.com" alt="Deutsche Börse logo">Deutsche Börse Group
     </a>.
   </p>
 
   <p>↳ Former Software Engineer Intern at 
-    <a href="https://www.sap.com/" target="_blank" class="logo-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP logo">SAP Labs Bucharest
+    <a href="https://www.sap.com" target="_blank" class="logo-link">
+      <img src="https://logo.clearbit.com/sap.com" alt="SAP logo">SAP Labs Bucharest
     </a> and Data Analyst at 
-    <a href="https://www.pwc.com/" target="_blank" class="logo-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/PricewaterhouseCoopers_Logo.svg" alt="PwC logo">PwC
+    <a href="https://www.pwc.com" target="_blank" class="logo-link">
+      <img src="https://logo.clearbit.com/pwc.com" alt="PwC logo">PwC
     </a>.
-  </p>
-
-  <p>↳ Co-Founder at 
-    <a href="https://www.linkedin.com/company/sera-ai/" target="_blank" class="logo-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Artificial_intelligence_icon.svg" alt="Sera AI logo">Sera AI
-    </a> — building voice intelligence for business.
   </p>
 
   <p>↳ Focused on AI systems, data infrastructure, and quantitative finance.</p>
@@ -149,13 +144,19 @@
       }
     });
 
-    // ✨ Parallax glow follows mouse
+    // Custom cursor
     const cursor = document.getElementById("cursor");
     document.addEventListener("mousemove", (e) => {
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      cursor.style.opacity = 1;
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
     });
-    document.addEventListener("mouseleave", () => (cursor.style.opacity = 0));
+
+    // Hover grow on links
+    const links = document.querySelectorAll("a, button");
+    links.forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("cursor-hover"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("cursor-hover"));
+    });
   </script>
 </body>
 </html>
