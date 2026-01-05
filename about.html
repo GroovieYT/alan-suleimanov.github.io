@@ -1,52 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Alan Suleimanov</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'JetBrains Mono', monospace; transition: background .3s, color .3s; padding: 3rem 1.5rem; }
-    body.light { background: #fff; color: #111; }
-    body.dark { background: #0f0f0f; color: #e2e2e2; }
-    a { color: #007acc; } body.dark a { color: #5cd3ff; }
-    .title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
-    .toggle-btn { border: 1px solid #aaa; padding: .4rem .8rem; border-radius: 8px; cursor: pointer; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Irmin Tech</title>
+  <meta name="description" content="Our story: second-generation renewable feedstock supply focused on intermediate crops with traceability-ready execution across Germany, Bucharest (Romania), and Kazakhstan." />
+
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
 </head>
 
-<body class="light max-w-2xl mx-auto">
-  <div class="flex justify-between items-center mb-6">
-    <div class="title">◆ About</div>
-    <button class="toggle-btn" id="themeToggle">Dark mode</button>
-  </div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <div class="nav mb-6">
-    <a href="index.html">Home</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="about.html" class="font-semibold">About</a> |
-    <a href="portfolio.html">Portfolio</a> |
-    <a href="contact.html">Contact</a>
-  </div>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark">IT</span>
+        <span class="brand__name">Irmin Tech</span>
+      </a>
 
-  <p>↳ Based in Ontario, Canada.</p>
-  <p>↳ Studying Computer Science at Western University.</p>
-  <p>↳ Professional background in finance, consulting, and technology.</p>
-  <p>↳ Experienced with Databricks, Python, and quantitative systems.</p>
-  <p>↳ Passionate about markets, data, and long-term value creation.</p>
-  <p>↳ Outside work: photography, kickboxing, and travel.</p>
+      <nav class="nav" aria-label="Primary">
+        <a href="/" data-nav="/">Home</a>
+        <a href="/about.html" data-nav="/about.html">About</a>
+        <a href="/feedstocks.html" data-nav="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html" data-nav="/resources.html">Resources</a>
+        <a href="/contact.html" data-nav="/contact.html">Contact</a>
+      </nav>
 
-  <footer class="mt-6 text-sm text-gray-500">© <span id="year"></span> Alan Suleimanov</footer>
+      <div class="header__cta">
+        <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+        <a class="btn" href="/contact.html">Talk to us</a>
+      </div>
 
-  <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-    const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
-    if (localStorage.getItem('theme') === 'dark') body.classList.replace('light', 'dark');
-    toggleBtn.addEventListener('click', () => {
-      if (body.classList.contains('light')) { body.classList.replace('light', 'dark'); localStorage.setItem('theme', 'dark'); }
-      else { body.classList.replace('dark', 'light'); localStorage.setItem('theme', 'light'); }
-    });
-  </script>
+      <button class="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+
+    <div class="mobileNav" hidden>
+      <div class="container">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/feedstocks.html">Feedstocks</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/contact.html">Contact</a>
+        <div class="mobileNav__cta">
+          <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+          <a class="btn" href="/contact.html">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+
+        <!-- top image band feel, but inline svg -->
+        <div class="band" aria-hidden="true">
+          <svg viewBox="0 0 1600 520" role="img">
+            <rect width="1600" height="520" rx="28" fill="#F6F7F9"></rect>
+            <path d="M0 360C260 320 430 420 700 370C970 320 1090 220 1320 280C1480 320 1560 410 1600 385V520H0V360Z" fill="#ECEFF2"></path>
+            <text x="70" y="140" font-family="ui-sans-serif, system-ui" font-size="42" fill="#9AA3AE">Our Story</text>
+            <text x="70" y="195" font-family="ui-sans-serif, system-ui" font-size="20" fill="#9AA3AE">Built for traceability-ready execution</text>
+          </svg>
+        </div>
+
+        <div class="section section--tight">
+          <div class="prose">
+            <h1 class="h1" style="font-size: clamp(2rem, 3vw, 2.6rem);">Our Story</h1>
+
+            <p class="muted" style="margin-top:14px;">
+              Irmin Tech is a second-generation renewable feedstock supplier focused on intermediate crops for advanced biofuels.
+              We bridge agriculture and renewable fuels markets with supply programs designed to be practical—contractable,
+              routable, and documentation-ready.
+            </p>
+
+            <p class="muted" style="margin-top:12px;">
+              We are based in Germany and operate across Bucharest (Romania) and Kazakhstan. Our work spans origin build-out,
+              partner coordination, and buyer-facing interfaces—ensuring the chain from field to refinery gate is aligned
+              on quality, routing, and traceability expectations.
+            </p>
+
+            <div class="divider"></div>
+
+            <h2 class="h2">Mission</h2>
+            <p class="muted" style="margin-top:10px;">
+              Build reliable intermediate-crop feedstock supply for SAF and renewable fuels value chains—through disciplined execution and traceability-ready reporting.
+            </p>
+
+            <h2 class="h2" style="margin-top:26px;">What makes Irmin Tech different</h2>
+            <ul class="cardList">
+              <li><b style="color:var(--text);">Intermediate-crop focus:</b> Camelina sativa and Carinata programs designed around realistic grower adoption and routing.</li>
+              <li><b style="color:var(--text);">Traceability-ready execution:</b> chain-of-custody thinking built into contracting, batching, and handoffs.</li>
+              <li><b style="color:var(--text);">Partnership model:</b> structured interfaces with growers, aggregators, logistics, and crushing partners.</li>
+              <li><b style="color:var(--text);">B2B reliability:</b> clear specs, predictable timelines, and transparent assumptions—no hype.</li>
+            </ul>
+
+            <h2 class="h2" style="margin-top:26px;">Sustainability & compliance readiness</h2>
+            <p class="muted" style="margin-top:10px;">
+              Our programs are designed to align with RED III expectations in documentation and reporting practices, based on
+              what downstream buyers typically require to support regulatory and voluntary scheme needs.
+            </p>
+            <p class="muted" style="margin-top:12px;">
+              We operate with a certification-ready mindset for schemes such as ISCC / CORSIA where applicable—meaning the supply chain is structured
+              to support audit-ready data capture and verification, subject to partner scope and project requirements.
+            </p>
+
+            <h2 class="h2" style="margin-top:26px;">Where we operate</h2>
+            <div class="grid3" style="margin-top:12px;">
+              <div class="card"><div class="card__pad">
+                <div class="h3">Germany</div>
+                <div class="card__muted">Program design, partner coordination, market interface.</div>
+              </div></div>
+              <div class="card"><div class="card__pad">
+                <div class="h3">Bucharest (Romania)</div>
+                <div class="card__muted">Regional execution and stakeholder alignment.</div>
+              </div></div>
+              <div class="card"><div class="card__pad">
+                <div class="h3">Kazakhstan</div>
+                <div class="card__muted">Origin development and supply chain build-out.</div>
+              </div></div>
+            </div>
+
+            <div class="card" style="margin-top:18px;">
+              <div class="card__pad">
+                <div class="h3">Working with us</div>
+                <p class="card__muted">
+                  If you’re evaluating intermediate crops for SAF or renewable fuels—or exploring grower, logistics, or processing partnerships—we’ll share a practical engagement path and documentation expectations upfront.
+                </p>
+                <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+                  <a class="btn btn--outline" href="/feedstocks.html">Explore Feedstocks</a>
+                  <a class="btn" href="/contact.html">Talk to us</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__title">Irmin Tech</div>
+        <div class="footer__muted">
+          Second-generation renewable feedstock supply focused on intermediate crops and traceability-ready execution.
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__title">Footprint</div>
+        <ul class="footer__list">
+          <li>Germany</li>
+          <li>Bucharest (Romania)</li>
+          <li>Kazakhstan</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__title">Email</div>
+        <a class="footer__link" href="mailto:info@irmintech.com">info@irmintech.com</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © <span id="year"></span> Irmin Tech. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
